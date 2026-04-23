@@ -18,13 +18,19 @@
         </Grid.RowDefinitions>
 
         <!-- Header -->
-        <StackPanel Grid.Row="0" Margin="0,0,0,20">
-            <TextBlock Text="Ico-Chan" FontSize="32" FontWeight="Bold" Foreground="{StaticResource AccentBrush}"/>
-            <TextBlock Text="Convert your Image to Windows Multi-Frame Icon" Foreground="{StaticResource TextDimBrush}"/>
-        </StackPanel>
+        <Grid Grid.Row="0" Margin="0,0,0,20">
+            <StackPanel>
+                <TextBlock Text="Ico-Chan" FontSize="32" FontWeight="Bold" Foreground="{DynamicResource AccentBrush}"/>
+                <TextBlock Text="Convert your Image to Windows Multi-Frame Icon" Foreground="{DynamicResource TextDimBrush}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="Dark Background" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="12" Foreground="{DynamicResource TextDimBrush}"/>
+                <CheckBox x:Name="ThemeToggle" IsChecked="True" Checked="ThemeToggle_Changed" Unchecked="ThemeToggle_Changed" Style="{StaticResource ModernCheckBox}"/>
+            </StackPanel>
+        </Grid>
 
         <!-- Body -->
-        <Border Grid.Row="1" Background="{StaticResource SurfaceBrush}" CornerRadius="15" BorderThickness="1" BorderBrush="#33ffffff">
+        <Border Grid.Row="1" Background="{DynamicResource SurfaceBrush}" CornerRadius="15" BorderThickness="1" BorderBrush="#33ffffff">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -33,10 +39,10 @@
 
                 <!-- Drop & Preview Zone -->
                 <Grid x:Name="DropZone" Height="140" Margin="20">
-                    <Rectangle Stroke="{StaticResource AccentBrush}" StrokeThickness="2" StrokeDashArray="4,4" RadiusX="10" RadiusY="10"/>
+                    <Rectangle Stroke="{DynamicResource AccentBrush}" StrokeThickness="2" StrokeDashArray="4,4" RadiusX="10" RadiusY="10"/>
                     <TextBlock x:Name="DropText" Text="Drop Base Image Here (PNG/ICO/JPG)" 
                                HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Foreground="{StaticResource TextDimBrush}"/>
+                               Foreground="{DynamicResource TextDimBrush}"/>
                     <Image x:Name="SourcePreview" Stretch="Uniform" Margin="10" Visibility="Collapsed"/>
                 </Grid>
 
@@ -61,9 +67,9 @@
                                     </Grid>
                                     
                                     <StackPanel Margin="0,8,0,0">
-                                        <TextBlock Text="{Binding SizeText}" Foreground="{StaticResource TextBrush}" 
+                                        <TextBlock Text="{Binding SizeText}" Foreground="{DynamicResource TextBrush}" 
                                                    FontWeight="Bold" FontSize="12" HorizontalAlignment="Center"/>
-                                        <TextBlock Text="{Binding StatusText}" Foreground="{StaticResource TextDimBrush}" 
+                                        <TextBlock Text="{Binding StatusText}" Foreground="{DynamicResource TextDimBrush}" 
                                                    FontSize="10" HorizontalAlignment="Center" TextAlignment="Center"/>
                                     </StackPanel>
                                 </StackPanel>
@@ -80,7 +86,7 @@
                     Style="{StaticResource PrimaryButton}" Height="30"
                     Click="ExportButton_Click" IsEnabled="False"/>
             <TextBlock x:Name="StatusLabel" Text="Ready" HorizontalAlignment="Center" 
-                       Margin="0,10,0,0" Foreground="{StaticResource TextDimBrush}" FontSize="12"/>
+                       Margin="0,10,0,0" Foreground="{DynamicResource TextDimBrush}" FontSize="12"/>
         </StackPanel>
     </Grid>
 </Window>

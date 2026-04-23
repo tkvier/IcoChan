@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
@@ -158,6 +159,25 @@ namespace IconvApp
                 }
                 e.Handled = true;
             }
+        }
+
+        private void ThemeToggle_Changed(object sender, RoutedEventArgs e)
+        {
+            if (ThemeToggle == null) return;
+
+            bool isDark = ThemeToggle.IsChecked == true;
+
+            // Define colors
+            var bgColor = isDark ? Color.FromRgb(0x12, 0x12, 0x12) : Color.FromRgb(0xF0, 0xF0, 0xF0);
+            var surfaceColor = isDark ? Color.FromRgb(0x1E, 0x1E, 0x1E) : Color.FromRgb(0xFF, 0xFF, 0xFF);
+            var textColor = isDark ? Colors.White : Colors.Black;
+            var textDimColor = isDark ? Color.FromRgb(0xA0, 0xA0, 0xA0) : Color.FromRgb(0x66, 0x66, 0x66);
+
+            // Update Brush resources directly
+            Application.Current.Resources["BgBrush"] = new SolidColorBrush(bgColor);
+            Application.Current.Resources["SurfaceBrush"] = new SolidColorBrush(surfaceColor);
+            Application.Current.Resources["TextBrush"] = new SolidColorBrush(textColor);
+            Application.Current.Resources["TextDimBrush"] = new SolidColorBrush(textDimColor);
         }
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
