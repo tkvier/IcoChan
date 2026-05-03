@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Multi-Frame Icon Generator - Ico-Chan" Height="700" Width="550"
+        Title="Multi-Frame Icon Generator - IcoChan" Height="700" Width="550"
         Style="{StaticResource ModernWindow}"
         WindowStartupLocation="CenterScreen"
         AllowDrop="True"
@@ -20,7 +20,7 @@
         <!-- Header -->
         <Grid Grid.Row="0" Margin="0,0,0,20">
             <StackPanel>
-                <TextBlock Text="Ico-Chan" FontSize="32" FontWeight="Bold" Foreground="{DynamicResource AccentBrush}"/>
+                <TextBlock Text="IcoChan" FontSize="32" FontWeight="Bold" Foreground="{DynamicResource AccentBrush}"/>
                 <TextBlock Text="Convert your Image to Windows Multi-Frame Icon" Foreground="{DynamicResource TextDimBrush}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
